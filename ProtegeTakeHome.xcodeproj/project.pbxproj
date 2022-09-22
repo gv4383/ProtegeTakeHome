@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1128DD1ABD00B54D57 /* ChatView.swift */; };
 		BC1885732864DF39004CF02F /* ProtegeTakeHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1885722864DF39004CF02F /* ProtegeTakeHomeApp.swift */; };
-		BC1885752864DF39004CF02F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1885742864DF39004CF02F /* ContentView.swift */; };
 		BC1885772864DF3A004CF02F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC1885762864DF3A004CF02F /* Assets.xcassets */; };
 		BC18857A2864DF3A004CF02F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC1885792864DF3A004CF02F /* Preview Assets.xcassets */; };
 		BC1885812864DF84004CF02F /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1885802864DF84004CF02F /* ChatAPI.swift */; };
@@ -17,9 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B99BDF1128DD1ABD00B54D57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		BC18856F2864DF39004CF02F /* ProtegeTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtegeTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC1885722864DF39004CF02F /* ProtegeTakeHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtegeTakeHomeApp.swift; sourceTree = "<group>"; };
-		BC1885742864DF39004CF02F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BC1885762864DF3A004CF02F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC1885792864DF3A004CF02F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC1885802864DF84004CF02F /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPI.swift; sourceTree = "<group>"; };
@@ -38,6 +38,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B99BDF0E28DD18E100B54D57 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BC1885722864DF39004CF02F /* ProtegeTakeHomeApp.swift */,
+				BC1885762864DF3A004CF02F /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		B99BDF0F28DD190900B54D57 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B99BDF1128DD1ABD00B54D57 /* ChatView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B99BDF1028DD199900B54D57 /* ChatAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BC1885802864DF84004CF02F /* ChatAPI.swift */,
+				BC1885822864DFB9004CF02F /* MockChatAPI.swift */,
+			);
+			path = ChatAPI;
+			sourceTree = "<group>";
+		};
 		BC1885662864DF39004CF02F = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +84,10 @@
 		BC1885712864DF39004CF02F /* ProtegeTakeHome */ = {
 			isa = PBXGroup;
 			children = (
-				BC1885722864DF39004CF02F /* ProtegeTakeHomeApp.swift */,
-				BC1885742864DF39004CF02F /* ContentView.swift */,
-				BC1885802864DF84004CF02F /* ChatAPI.swift */,
-				BC1885822864DFB9004CF02F /* MockChatAPI.swift */,
-				BC1885762864DF3A004CF02F /* Assets.xcassets */,
+				B99BDF1028DD199900B54D57 /* ChatAPI */,
 				BC1885782864DF3A004CF02F /* Preview Content */,
+				B99BDF0F28DD190900B54D57 /* Screens */,
+				B99BDF0E28DD18E100B54D57 /* Support */,
 			);
 			path = ProtegeTakeHome;
 			sourceTree = "<group>";
@@ -154,7 +178,7 @@
 			files = (
 				BC1885812864DF84004CF02F /* ChatAPI.swift in Sources */,
 				BC1885832864DFB9004CF02F /* MockChatAPI.swift in Sources */,
-				BC1885752864DF39004CF02F /* ContentView.swift in Sources */,
+				B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */,
 				BC1885732864DF39004CF02F /* ProtegeTakeHomeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

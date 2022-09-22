@@ -9,7 +9,7 @@ import SwiftUI
 struct ProtegeTakeHomeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ChatView()
         }
     }
 }
