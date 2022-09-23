@@ -1,5 +1,5 @@
 //
-//  LoadingView.swift
+//  PTHLoadingView.swift
 //  ProtegeTakeHome
 //
 //  Created by Goyo Vargas on 9/22/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoadingView: View {
+struct PTHLoadingView: View {
     var body: some View {
         ProgressView()
             .progressViewStyle(CircularProgressViewStyle())
@@ -15,8 +15,8 @@ struct LoadingView: View {
     }
 }
 
-struct LoadingView_Previews: PreviewProvider {
+struct PTHLoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView()
+        PTHLoadingView()
     }
 }

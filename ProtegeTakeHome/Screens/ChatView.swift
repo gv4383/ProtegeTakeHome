@@ -14,7 +14,7 @@ struct ChatView: View {
     
     var body: some View {
         if isLoadingChatMessages {
-            LoadingView()
+            PTHLoadingView()
                 .task {
                     do {
                         let chat = Chat(primarySender: MessageSender.lia, secondarySender: MessageSender.christina)
@@ -29,12 +29,16 @@ struct ChatView: View {
                 }
         } else {
             Text("Chat messages loaded!")
+                .navigationTitle("Joe Toe")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        NavigationView {
+            ChatView()
+        }
     }
 }

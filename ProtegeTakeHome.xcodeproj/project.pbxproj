@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1128DD1ABD00B54D57 /* ChatView.swift */; };
-		B99BDF1528DD230400B54D57 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1428DD230400B54D57 /* LoadingView.swift */; };
+		B99BDF1528DD230400B54D57 /* PTHLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */; };
+		B99BDF1928DD2B4E00B54D57 /* PTHSendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */; };
+		B99BDF1C28DD2BC700B54D57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1B28DD2BC700B54D57 /* Constants.swift */; };
 		BC1885732864DF39004CF02F /* ProtegeTakeHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1885722864DF39004CF02F /* ProtegeTakeHomeApp.swift */; };
 		BC1885772864DF3A004CF02F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC1885762864DF3A004CF02F /* Assets.xcassets */; };
 		BC18857A2864DF3A004CF02F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC1885792864DF3A004CF02F /* Preview Assets.xcassets */; };
@@ -19,7 +21,9 @@
 
 /* Begin PBXFileReference section */
 		B99BDF1128DD1ABD00B54D57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		B99BDF1428DD230400B54D57 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHLoadingView.swift; sourceTree = "<group>"; };
+		B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHSendButton.swift; sourceTree = "<group>"; };
+		B99BDF1B28DD2BC700B54D57 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC18856F2864DF39004CF02F /* ProtegeTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtegeTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC1885722864DF39004CF02F /* ProtegeTakeHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtegeTakeHomeApp.swift; sourceTree = "<group>"; };
 		BC1885762864DF3A004CF02F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,9 +73,34 @@
 		B99BDF1328DD22F300B54D57 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B99BDF1428DD230400B54D57 /* LoadingView.swift */,
+				B99BDF1728DD2B4100B54D57 /* Buttons */,
+				B99BDF1628DD2B2800B54D57 /* Views */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B99BDF1628DD2B2800B54D57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B99BDF1728DD2B4100B54D57 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		B99BDF1A28DD2BB600B54D57 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B99BDF1B28DD2BC700B54D57 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		BC1885662864DF39004CF02F = {
@@ -99,6 +128,7 @@
 				BC1885782864DF3A004CF02F /* Preview Content */,
 				B99BDF0F28DD190900B54D57 /* Screens */,
 				B99BDF0E28DD18E100B54D57 /* Support */,
+				B99BDF1A28DD2BB600B54D57 /* Utilities */,
 			);
 			path = ProtegeTakeHome;
 			sourceTree = "<group>";
@@ -190,7 +220,9 @@
 				BC1885812864DF84004CF02F /* ChatAPI.swift in Sources */,
 				BC1885832864DFB9004CF02F /* MockChatAPI.swift in Sources */,
 				B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */,
-				B99BDF1528DD230400B54D57 /* LoadingView.swift in Sources */,
+				B99BDF1928DD2B4E00B54D57 /* PTHSendButton.swift in Sources */,
+				B99BDF1C28DD2BC700B54D57 /* Constants.swift in Sources */,
+				B99BDF1528DD230400B54D57 /* PTHLoadingView.swift in Sources */,
 				BC1885732864DF39004CF02F /* ProtegeTakeHomeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
