@@ -11,6 +11,8 @@
 		B99BDF1528DD230400B54D57 /* PTHLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */; };
 		B99BDF1928DD2B4E00B54D57 /* PTHSendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */; };
 		B99BDF1C28DD2BC700B54D57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1B28DD2BC700B54D57 /* Constants.swift */; };
+		B99BDF1F28DD5C0200B54D57 /* PTHMessageInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1E28DD5C0200B54D57 /* PTHMessageInputBar.swift */; };
+		B99BDF2228DD609700B54D57 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF2128DD609700B54D57 /* View+Ext.swift */; };
 		BC1885732864DF39004CF02F /* ProtegeTakeHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1885722864DF39004CF02F /* ProtegeTakeHomeApp.swift */; };
 		BC1885772864DF3A004CF02F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC1885762864DF3A004CF02F /* Assets.xcassets */; };
 		BC18857A2864DF3A004CF02F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC1885792864DF3A004CF02F /* Preview Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHLoadingView.swift; sourceTree = "<group>"; };
 		B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHSendButton.swift; sourceTree = "<group>"; };
 		B99BDF1B28DD2BC700B54D57 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B99BDF1E28DD5C0200B54D57 /* PTHMessageInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHMessageInputBar.swift; sourceTree = "<group>"; };
+		B99BDF2128DD609700B54D57 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		BC18856F2864DF39004CF02F /* ProtegeTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtegeTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC1885722864DF39004CF02F /* ProtegeTakeHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtegeTakeHomeApp.swift; sourceTree = "<group>"; };
 		BC1885762864DF3A004CF02F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				B99BDF1728DD2B4100B54D57 /* Buttons */,
+				B99BDF1D28DD5BD100B54D57 /* Input */,
 				B99BDF1628DD2B2800B54D57 /* Views */,
 			);
 			path = Components;
@@ -103,6 +108,22 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		B99BDF1D28DD5BD100B54D57 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				B99BDF1E28DD5C0200B54D57 /* PTHMessageInputBar.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		B99BDF2028DD607B00B54D57 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B99BDF2128DD609700B54D57 /* View+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BC1885662864DF39004CF02F = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +146,7 @@
 			children = (
 				B99BDF1028DD199900B54D57 /* ChatAPI */,
 				B99BDF1328DD22F300B54D57 /* Components */,
+				B99BDF2028DD607B00B54D57 /* Extensions */,
 				BC1885782864DF3A004CF02F /* Preview Content */,
 				B99BDF0F28DD190900B54D57 /* Screens */,
 				B99BDF0E28DD18E100B54D57 /* Support */,
@@ -218,6 +240,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC1885812864DF84004CF02F /* ChatAPI.swift in Sources */,
+				B99BDF1F28DD5C0200B54D57 /* PTHMessageInputBar.swift in Sources */,
+				B99BDF2228DD609700B54D57 /* View+Ext.swift in Sources */,
 				BC1885832864DFB9004CF02F /* MockChatAPI.swift in Sources */,
 				B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */,
 				B99BDF1928DD2B4E00B54D57 /* PTHSendButton.swift in Sources */,

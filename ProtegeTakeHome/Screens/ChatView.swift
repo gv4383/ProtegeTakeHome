@@ -28,9 +28,15 @@ struct ChatView: View {
                     }
                 }
         } else {
-            Text("Chat messages loaded!")
-                .navigationTitle("Joe Toe")
-                .navigationBarTitleDisplayMode(.inline)
+            VStack {
+                Text("Chat messages loaded!")
+                
+                Spacer()
+                
+                PTHMessageInputBar()
+            }
+            .navigationTitle("Joe Toe")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
