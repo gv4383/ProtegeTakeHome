@@ -10,3 +10,7 @@ import Foundation
 struct SFSymbols {
     static let send = "arrow.up"
 }
+
+struct MessageInputTextField {
+    static let placeholder = "Message"
+}

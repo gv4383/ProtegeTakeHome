@@ -16,7 +16,7 @@ struct PTHMessageInputBar: View {
     
     var body: some View {
         HStack {
-            TextField("Message", text: $messageInput)
+            TextField(MessageInputTextField.placeholder, text: $messageInput)
             
             Spacer()
             
