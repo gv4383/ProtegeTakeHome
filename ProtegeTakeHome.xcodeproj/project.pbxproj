@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B96B3E1728DE58DE007EEDFB /* PTHMessageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B3E1628DE58DE007EEDFB /* PTHMessageContainerView.swift */; };
+		B96B3E1928DE5E4E007EEDFB /* PTHPrimaryMessageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B3E1828DE5E4E007EEDFB /* PTHPrimaryMessageContainerView.swift */; };
+		B96B3E1B28DE5F3C007EEDFB /* PTHSecondaryMessageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B3E1A28DE5F3C007EEDFB /* PTHSecondaryMessageContainerView.swift */; };
 		B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1128DD1ABD00B54D57 /* ChatView.swift */; };
 		B99BDF1528DD230400B54D57 /* PTHLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */; };
 		B99BDF1928DD2B4E00B54D57 /* PTHSendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B96B3E1628DE58DE007EEDFB /* PTHMessageContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHMessageContainerView.swift; sourceTree = "<group>"; };
+		B96B3E1828DE5E4E007EEDFB /* PTHPrimaryMessageContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHPrimaryMessageContainerView.swift; sourceTree = "<group>"; };
+		B96B3E1A28DE5F3C007EEDFB /* PTHSecondaryMessageContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHSecondaryMessageContainerView.swift; sourceTree = "<group>"; };
 		B99BDF1128DD1ABD00B54D57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHLoadingView.swift; sourceTree = "<group>"; };
 		B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHSendButton.swift; sourceTree = "<group>"; };
@@ -48,6 +54,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B96B3E1C28DE5F90007EEDFB /* MessageContainerViews */ = {
+			isa = PBXGroup;
+			children = (
+				B96B3E1628DE58DE007EEDFB /* PTHMessageContainerView.swift */,
+				B96B3E1828DE5E4E007EEDFB /* PTHPrimaryMessageContainerView.swift */,
+				B96B3E1A28DE5F3C007EEDFB /* PTHSecondaryMessageContainerView.swift */,
+			);
+			path = MessageContainerViews;
+			sourceTree = "<group>";
+		};
 		B99BDF0E28DD18E100B54D57 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */,
+				B96B3E1C28DE5F90007EEDFB /* MessageContainerViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,11 +260,14 @@
 				B99BDF1F28DD5C0200B54D57 /* PTHMessageInputBar.swift in Sources */,
 				B99BDF2228DD609700B54D57 /* View+Ext.swift in Sources */,
 				BC1885832864DFB9004CF02F /* MockChatAPI.swift in Sources */,
+				B96B3E1B28DE5F3C007EEDFB /* PTHSecondaryMessageContainerView.swift in Sources */,
 				B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */,
 				B99BDF1928DD2B4E00B54D57 /* PTHSendButton.swift in Sources */,
 				B99BDF1C28DD2BC700B54D57 /* Constants.swift in Sources */,
 				B99BDF1528DD230400B54D57 /* PTHLoadingView.swift in Sources */,
+				B96B3E1928DE5E4E007EEDFB /* PTHPrimaryMessageContainerView.swift in Sources */,
 				BC1885732864DF39004CF02F /* ProtegeTakeHomeApp.swift in Sources */,
+				B96B3E1728DE58DE007EEDFB /* PTHMessageContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
