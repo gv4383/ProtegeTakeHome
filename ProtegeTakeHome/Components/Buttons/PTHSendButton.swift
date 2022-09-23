@@ -11,11 +11,19 @@ struct PTHFilledButton: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
     
     func makeBody(configuration: Configuration) -> some View {
+        var foregroundColor: Color {
+            configuration.isPressed ? .white.opacity(0.5) : .white
+        }
+        
+        var backgroundColor: Color {
+            configuration.isPressed ? .blue.opacity(0.5) : .blue
+        }
+        
         return configuration
             .label
-            .foregroundColor(.white)
+            .foregroundColor(foregroundColor)
             .padding(8)
-            .background(.blue)
+            .background(backgroundColor)
             .clipShape(Circle())
     }
 }
