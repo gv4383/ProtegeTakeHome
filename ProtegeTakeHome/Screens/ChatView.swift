@@ -8,28 +8,32 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var isLoadingChatMessages = true
-    
-    private let mockChatAPI = MockChatAPI()
+    @StateObject private var viewModel = ChatViewModel()
     
     var body: some View {
-        if isLoadingChatMessages {
+        if viewModel.isLoadingChatMessages {
             PTHLoadingView()
                 .task {
                     do {
-                        let chat = Chat(primarySender: MessageSender.lia, secondarySender: MessageSender.christina)
-                        let start = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
-                        let end = Date()
-                        let chatMessages = try await mockChatAPI.fetchMessages(for: chat, interval: DateInterval(start: start, end: end))
-                        print(chatMessages)
-                        isLoadingChatMessages = false
+                        try await viewModel.fetchChatMessages()
                     } catch {
-                        print("Something went wrong loading the chat messgages")
+                        print(PTHError.unableToFetchMessages)
                     }
                 }
         } else {
             VStack {
-                Text("Chat messages loaded!")
+                ScrollView {
+                    VStack {
+                        ForEach(viewModel.chatMessages) { message in
+                            if message.sender == viewModel.primaryMessenger {
+                                PTHPrimaryMessageContainerView(messageText: message.content)
+                            } else {
+                                PTHSecondaryMessageContainerView(messageText: message.content)
+                            }
+                        }
+                    }
+                    .padding()
+                }
                 
                 Spacer()
                 
