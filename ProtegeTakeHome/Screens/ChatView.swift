@@ -10,7 +10,7 @@ import SwiftUI
 struct ChatView: View {
     @State private var isLoadingChatMessages = true
     
-    let mockChatAPI = MockChatAPI()
+    private let mockChatAPI = MockChatAPI()
     
     var body: some View {
         if isLoadingChatMessages {

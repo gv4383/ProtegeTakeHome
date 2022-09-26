@@ -11,11 +11,11 @@ struct PTHMessageContainerView: View {
     let messageText: String
     let isPrimaryMessenger: Bool
     
-    var foregroundColor: Color {
+    private var foregroundColor: Color {
         isPrimaryMessenger ? .white : .primary
     }
     
-    var backgroundColor: Color {
+    private var backgroundColor: Color {
         isPrimaryMessenger ? .blue : .gray.opacity(0.3)
     }
     
