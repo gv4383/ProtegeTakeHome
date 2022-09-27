@@ -24,7 +24,7 @@ struct ChatView: View {
             VStack {
                 ScrollView {
                     ScrollViewReader { scrollView in
-                        LazyVStack {
+                        LazyVStack(spacing: 16) {
                             ForEach(Array(viewModel.chatMessages.enumerated()), id: \.1) { (i, message) in
                                 if i > 0 {
                                     let previousMessageDate = viewModel.chatMessages[i - 1].date
@@ -53,7 +53,7 @@ struct ChatView: View {
                 
                 PTHMessageInputBar(sendMessageAction: viewModel.sendMessage)
             }
-            .navigationTitle("Joe Toe")
+            .navigationTitle(viewModel.contactName)
             .navigationBarTitleDisplayMode(.inline)
         }
     }

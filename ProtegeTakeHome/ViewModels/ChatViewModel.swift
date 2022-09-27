@@ -12,17 +12,36 @@ extension ChatView {
         @Published var isLoadingChatMessages = true
         @Published var chatMessages = [Message]()
         
-        let primaryMessenger = MessageSender.lia
-        let secondaryMessenger = MessageSender.christina
+        let primaryMessenger = MessageSender.greg
+        var secondaryMessenger: MessageSender {
+            let contacts = [
+                MessageSender.christina,
+                MessageSender.lia,
+                MessageSender.katie,
+                MessageSender.kelly
+            ]
+
+            return contacts.randomElement()!
+        }
+        
+        var contactName: String {
+            let firstName = secondaryMessenger.name.givenName ?? ""
+            let lastName = secondaryMessenger.name.familyName ?? ""
+            
+            guard firstName != "" && lastName != "" else {
+                return "N/A"
+            }
+            
+            return "\(firstName) \(lastName)"
+        }
         
         func fetchChatMessages() async throws {
             let mockChatAPI = MockChatAPI()
-            let chat = Chat(primarySender: MessageSender.lia, secondarySender: MessageSender.christina)
+            let chat = Chat(primarySender: primaryMessenger, secondarySender: secondaryMessenger)
             let start = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
             let end = Calendar.current.date(byAdding: .hour, value: -2, to: Date())!
             let chatMessages = try await mockChatAPI.fetchMessages(for: chat, interval: DateInterval(start: start, end: end))
             
-            // TODO: Is this correct?
             DispatchQueue.main.async {
                 self.isLoadingChatMessages = false
                 self.chatMessages = chatMessages

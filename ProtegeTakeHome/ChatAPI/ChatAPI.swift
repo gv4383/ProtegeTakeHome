@@ -46,4 +46,5 @@ extension MessageSender {
     static let katie     = MessageSender(name: try! .init("Katie Agatha Abeles"))
     static let christina = MessageSender(name: try! .init("Christina Ethel Ahmed"))
     static let kelly     = MessageSender(name: try! .init("Kelly Sloan Altick"))
+    static let greg      = MessageSender(name: try! .init("Greg Vargas"))
 }
