@@ -23,16 +23,27 @@ struct ChatView: View {
         } else {
             VStack {
                 ScrollView {
-                    VStack {
-                        ForEach(viewModel.chatMessages) { message in
-                            if message.sender == viewModel.primaryMessenger {
-                                PTHPrimaryMessageContainerView(messageText: message.content)
-                            } else {
-                                PTHSecondaryMessageContainerView(messageText: message.content)
+                    ScrollViewReader { scrollView in
+                        LazyVStack {
+                            ForEach(Array(viewModel.chatMessages.enumerated()), id: \.1) { (i, message) in
+                                if i > 0 {
+                                    let previousMessageDate = viewModel.chatMessages[i - 1].date
+                                    let timeOneHourAfterLastMessage = Calendar.current.date(byAdding: .hour, value: 1, to: previousMessageDate)!
+                                    
+                                    if message.date > timeOneHourAfterLastMessage {
+                                        PTHDateLabelView(date: message.date)
+                                    }
+                                }
+                                
+                                if message.sender == viewModel.primaryMessenger {
+                                    PTHPrimaryMessageContainerView(messageText: message.content)
+                                } else {
+                                    PTHSecondaryMessageContainerView(messageText: message.content)
+                                }
                             }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
                 
                 Spacer()
