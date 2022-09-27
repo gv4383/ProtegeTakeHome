@@ -22,7 +22,7 @@ struct PTHMessageContainerView: View {
     var body: some View {
         Text(messageText)
             .foregroundColor(foregroundColor)
-            .padding(8)
+            .padding(12)
             .background(backgroundColor)
             .cornerRadius(16)
     }
