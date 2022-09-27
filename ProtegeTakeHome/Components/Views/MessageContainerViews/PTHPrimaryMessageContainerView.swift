@@ -11,8 +11,11 @@ struct PTHPrimaryMessageContainerView: View {
     let messageText: String
     
     var body: some View {
-        PTHMessageContainerView(messageText: messageText, isPrimaryMessenger: true)
-            .frame(maxWidth: .infinity, alignment: .trailing)
+        HStack {
+            PTHMessageContainerView(messageText: messageText, isPrimaryMessenger: true)
+                .frame(maxWidth: 256, alignment: .trailing)
+        }
+        .frame(maxWidth: .infinity, alignment: .trailing)
     }
 }
 
