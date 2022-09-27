@@ -19,7 +19,7 @@ extension ChatView {
             let mockChatAPI = MockChatAPI()
             let chat = Chat(primarySender: MessageSender.lia, secondarySender: MessageSender.christina)
             let start = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
-            let end = Date()
+            let end = Calendar.current.date(byAdding: .hour, value: -2, to: Date())!
             let chatMessages = try await mockChatAPI.fetchMessages(for: chat, interval: DateInterval(start: start, end: end))
             
             // TODO: Is this correct?
@@ -29,6 +29,11 @@ extension ChatView {
             }
             
             print(chatMessages)
+        }
+        
+        func sendMessage(_ message: String) {
+            let newMessage = Message(date: Date(), content: message, sender: primaryMessenger)
+            chatMessages.append(newMessage)
         }
     }
 }

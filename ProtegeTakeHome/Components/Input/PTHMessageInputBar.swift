@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct PTHMessageInputBar: View {
-    @State private var messageInput = ""
+    let sendMessageAction: (String) -> Void
     
-    private func sendMessage() {
-        print("Sending message...")
-    }
+    @State private var messageInput = ""
     
     var body: some View {
         HStack {
@@ -20,7 +18,11 @@ struct PTHMessageInputBar: View {
             
             Spacer()
             
-            PTHSendButton(action: sendMessage)
+            PTHSendButton {
+                sendMessageAction(messageInput)
+                messageInput = ""
+            }
+            .disabled(messageInput.isEmpty)
         }
         .frame(maxWidth: .infinity)
         .padding()
@@ -29,7 +31,9 @@ struct PTHMessageInputBar: View {
 }
 
 struct PTHMessageInputBar_Previews: PreviewProvider {
+    static private func sendMessageAction(_ message: String) {}
+    
     static var previews: some View {
-        PTHMessageInputBar()
+        PTHMessageInputBar(sendMessageAction: sendMessageAction)
     }
 }

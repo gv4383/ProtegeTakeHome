@@ -51,7 +51,7 @@ struct ChatView: View {
                 
                 Spacer()
                 
-                PTHMessageInputBar()
+                PTHMessageInputBar(sendMessageAction: viewModel.sendMessage)
             }
             .navigationTitle("Joe Toe")
             .navigationBarTitleDisplayMode(.inline)

@@ -12,11 +12,19 @@ struct PTHFilledButton: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         var foregroundColor: Color {
-            configuration.isPressed ? .white.opacity(0.5) : .white
+            if isEnabled {
+                return configuration.isPressed ? .white.opacity(0.5) : .white
+            } else {
+                return .white.opacity(0.5)
+            }
         }
         
         var backgroundColor: Color {
-            configuration.isPressed ? .blue.opacity(0.5) : .blue
+            if isEnabled {
+                return configuration.isPressed ? .blue.opacity(0.5) : .blue
+            } else {
+                return .blue.opacity(0.5)
+            }
         }
         
         return configuration
