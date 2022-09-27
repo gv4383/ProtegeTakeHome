@@ -42,6 +42,9 @@ struct ChatView: View {
                                 }
                             }
                         }
+                        .onAppear {
+                            scrollView.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
+                        }
                         .padding()
                     }
                 }
