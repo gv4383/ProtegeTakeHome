@@ -13,19 +13,10 @@ extension ChatView {
         @Published var isFetchingInitialMessages = true
         @Published var isFetchingPreviousMessages = false
         @Published var lastMessageId = UUID()
+        @Published var previousFirstMessageIndex = 0
         
         let primaryMessenger = MessageSender.greg
         let secondaryMessenger = MessageSender.lia
-//        var secondaryMessenger: MessageSender {
-//            let contacts = [
-//                MessageSender.christina,
-//                MessageSender.lia,
-//                MessageSender.katie,
-//                MessageSender.kelly
-//            ]
-//
-//            return contacts.randomElement()!
-//        }
         
         var contactName: String {
             let firstName = secondaryMessenger.name.givenName ?? ""
@@ -70,11 +61,11 @@ extension ChatView {
             let chat = Chat(primarySender: primaryMessenger, secondarySender: secondaryMessenger)
             let start = Calendar.current.date(byAdding: .hour, value: -12, to: date)!
             let end = date
-//            let end = Calendar.current.date(byAdding: .hour, value: -12, to: date)!
             let chatMessages = try await mockChatAPI.fetchMessages(for: chat, interval: DateInterval(start: start, end: end))
             
             DispatchQueue.main.async {
                 self.chatMessages.insert(contentsOf: chatMessages, at: 0)
+                self.previousFirstMessageIndex = chatMessages.count
                 
                 if let lastMessageId = chatMessages.last?.id {
                     self.lastMessageId = lastMessageId

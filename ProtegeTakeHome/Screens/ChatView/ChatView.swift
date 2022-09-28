@@ -22,7 +22,7 @@ struct ChatView: View {
                 }
         } else {
             VStack(spacing: 0) {
-                ScrollViewReader { scrollView in
+                ScrollViewReader { proxy in
                     PTHScrollView {
                         LazyVStack(spacing: 16) {
                             if viewModel.isFetchingPreviousMessages {
@@ -52,14 +52,15 @@ struct ChatView: View {
                         .padding()
                     }
                     .onAppear {
-                        scrollView.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
+                        proxy.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
                     }
                     .onChange(of: viewModel.lastMessageId) { _ in
                         if viewModel.isFetchingPreviousMessages {
+                            proxy.scrollTo(viewModel.chatMessages[viewModel.previousFirstMessageIndex], anchor: .center)
                             viewModel.isFetchingPreviousMessages = false
                         } else {
                             withAnimation {
-                                scrollView.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
+                                proxy.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
                             }
                         }
                     }
