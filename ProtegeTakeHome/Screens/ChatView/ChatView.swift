@@ -21,7 +21,7 @@ struct ChatView: View {
                     }
                 }
         } else {
-            VStack {
+            VStack(spacing: 0) {
                 ScrollViewReader { scrollView in
                     PTHScrollView {
                         LazyVStack(spacing: 16) {
@@ -71,8 +71,6 @@ struct ChatView: View {
                         }
                     }
                 }
-                
-                Spacer()
                 
                 PTHMessageInputBar(sendMessageAction: viewModel.sendMessage)
             }
