@@ -15,16 +15,17 @@ extension ChatView {
         @Published var lastMessageId = UUID()
         
         let primaryMessenger = MessageSender.greg
-        var secondaryMessenger: MessageSender {
-            let contacts = [
-                MessageSender.christina,
-                MessageSender.lia,
-                MessageSender.katie,
-                MessageSender.kelly
-            ]
-
-            return contacts.randomElement()!
-        }
+        let secondaryMessenger = MessageSender.lia
+//        var secondaryMessenger: MessageSender {
+//            let contacts = [
+//                MessageSender.christina,
+//                MessageSender.lia,
+//                MessageSender.katie,
+//                MessageSender.kelly
+//            ]
+//
+//            return contacts.randomElement()!
+//        }
         
         var contactName: String {
             let firstName = secondaryMessenger.name.givenName ?? ""

@@ -74,6 +74,9 @@ struct ChatView: View {
                 
                 PTHMessageInputBar(sendMessageAction: viewModel.sendMessage)
             }
+            .onTapGesture {
+                hideKeyboard()
+            }
             .navigationTitle(viewModel.contactName)
             .navigationBarTitleDisplayMode(.inline)
         }

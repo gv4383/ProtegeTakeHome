@@ -11,7 +11,7 @@ struct PTHMessageInputBar: View {
     let sendMessageAction: (String) -> Void
     
     @State private var messageInput = ""
-    @FocusState private var messageInputIsFocused: Bool
+    @FocusState var messageInputIsFocused: Bool
     
     var body: some View {
         HStack {
