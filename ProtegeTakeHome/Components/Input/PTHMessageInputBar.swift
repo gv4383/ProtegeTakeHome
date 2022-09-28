@@ -11,16 +11,19 @@ struct PTHMessageInputBar: View {
     let sendMessageAction: (String) -> Void
     
     @State private var messageInput = ""
+    @FocusState private var messageInputIsFocused: Bool
     
     var body: some View {
         HStack {
             TextField(MessageInputTextField.placeholder, text: $messageInput)
+                .focused($messageInputIsFocused)
             
             Spacer()
             
             PTHSendButton {
                 sendMessageAction(messageInput)
                 messageInput = ""
+                messageInputIsFocused = false
             }
             .disabled(messageInput.isEmpty)
         }
