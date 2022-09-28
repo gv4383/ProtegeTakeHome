@@ -25,6 +25,13 @@ struct ChatView: View {
                 ScrollViewReader { scrollView in
                     PTHScrollView {
                         LazyVStack(spacing: 16) {
+                            if viewModel.isFetchingPreviousMessages {
+                                HStack {
+                                    PTHLoadingView()
+                                }
+                                .frame(maxWidth: .infinity)
+                            }
+                            
                             ForEach(Array(viewModel.chatMessages.enumerated()), id: \.1) { (i, message) in
                                 if i > 0 {
                                     let previousMessageDate = viewModel.chatMessages[i - 1].date
