@@ -11,11 +11,11 @@ struct ChatView: View {
     @StateObject private var viewModel = ChatViewModel()
     
     var body: some View {
-        if viewModel.isLoadingChatMessages {
+        if viewModel.isFetchingInitialMessages {
             PTHLoadingView()
                 .task {
                     do {
-                        try await viewModel.fetchChatMessages()
+                        try await viewModel.fetchInitialMessages()
                     } catch {
                         print(PTHError.unableToFetchMessages)
                     }
@@ -23,7 +23,7 @@ struct ChatView: View {
         } else {
             VStack {
                 ScrollViewReader { scrollView in
-                    ScrollView {
+                    PTHScrollView {
                         LazyVStack(spacing: 16) {
                             ForEach(Array(viewModel.chatMessages.enumerated()), id: \.1) { (i, message) in
                                 if i > 0 {
@@ -48,8 +48,19 @@ struct ChatView: View {
                         scrollView.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
                     }
                     .onChange(of: viewModel.lastMessageId) { _ in
-                        withAnimation {
-                            scrollView.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
+                        if viewModel.isFetchingPreviousMessages {
+                            viewModel.isFetchingPreviousMessages = false
+                        } else {
+                            withAnimation {
+                                scrollView.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
+                            }
+                        }
+                    }
+                    .refreshable {
+                        do {
+                            try await viewModel.fetchPreviousMessages()
+                        } catch {
+                            print(PTHError.unableToFetchMessages)
                         }
                     }
                 }

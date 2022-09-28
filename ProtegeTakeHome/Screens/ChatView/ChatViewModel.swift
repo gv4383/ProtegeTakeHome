@@ -9,8 +9,9 @@ import Foundation
 
 extension ChatView {
     final class ChatViewModel: ObservableObject {
-        @Published var isLoadingChatMessages = true
         @Published var chatMessages = [Message]()
+        @Published var isFetchingInitialMessages = true
+        @Published var isFetchingPreviousMessages = false
         @Published var lastMessageId = UUID()
         
         let primaryMessenger = MessageSender.greg
@@ -36,32 +37,47 @@ extension ChatView {
             return "\(firstName) \(lastName)"
         }
         
-        func fetchChatMessages(before date: Date = Date()) async throws {
-            let mockChatAPI = MockChatAPI()
-            let chat = Chat(primarySender: primaryMessenger, secondarySender: secondaryMessenger)
-            let start = Calendar.current.date(byAdding: .day, value: -1, to: date)!
-            let end = date
-//            let end = Calendar.current.date(byAdding: .hour, value: -2, to: date)!
-            let chatMessages = try await mockChatAPI.fetchMessages(for: chat, interval: DateInterval(start: start, end: end))
-            
-            DispatchQueue.main.async {
-                self.isLoadingChatMessages = false
-                self.chatMessages.insert(contentsOf: chatMessages, at: 0)
-                
-                if let lastMessageId = chatMessages.last?.id {
-                    self.lastMessageId = lastMessageId
-                }
-            }
-            
-            print(chatMessages)
-        }
-        
         func sendMessage(_ message: String) {
             let newMessage = Message(date: Date(), content: message, sender: primaryMessenger)
             chatMessages.append(newMessage)
             
             if let lastMessageId = chatMessages.last?.id {
                 self.lastMessageId = lastMessageId
+            }
+        }
+        
+        func fetchInitialMessages() async throws {
+            isFetchingInitialMessages = true
+            try await fetchChatMessages()
+            
+            DispatchQueue.main.async {
+                self.isFetchingInitialMessages = false
+            }
+        }
+        
+        func fetchPreviousMessages() async throws {
+            isFetchingPreviousMessages = true
+            
+            if let currentFirstMessage = chatMessages.first {
+                let dateOfCurrentFirstMessage = currentFirstMessage.date
+                try await fetchChatMessages(before: dateOfCurrentFirstMessage)
+            }
+        }
+        
+        private func fetchChatMessages(before date: Date = Date()) async throws {
+            let mockChatAPI = MockChatAPI()
+            let chat = Chat(primarySender: primaryMessenger, secondarySender: secondaryMessenger)
+            let start = Calendar.current.date(byAdding: .hour, value: -12, to: date)!
+            let end = date
+//            let end = Calendar.current.date(byAdding: .hour, value: -12, to: date)!
+            let chatMessages = try await mockChatAPI.fetchMessages(for: chat, interval: DateInterval(start: start, end: end))
+            
+            DispatchQueue.main.async {
+                self.chatMessages.insert(contentsOf: chatMessages, at: 0)
+                
+                if let lastMessageId = chatMessages.last?.id {
+                    self.lastMessageId = lastMessageId
+                }
             }
         }
     }

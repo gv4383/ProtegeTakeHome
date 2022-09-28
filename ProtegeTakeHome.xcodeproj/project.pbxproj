@@ -14,6 +14,8 @@
 		B96B3E2028E1FBBE007EEDFB /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B3E1F28E1FBBE007EEDFB /* DateFormatHelper.swift */; };
 		B96B3E2328E1FF0A007EEDFB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B3E2228E1FF0A007EEDFB /* ChatViewModel.swift */; };
 		B96B3E2528E2018D007EEDFB /* PTHError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B3E2428E2018D007EEDFB /* PTHError.swift */; };
+		B96B3E2828E4DDC8007EEDFB /* PTHScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B3E2728E4DDC8007EEDFB /* PTHScrollView.swift */; };
+		B96B3E2C28E4F2CE007EEDFB /* PTHScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B3E2B28E4F2CE007EEDFB /* PTHScrollViewModel.swift */; };
 		B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1128DD1ABD00B54D57 /* ChatView.swift */; };
 		B99BDF1528DD230400B54D57 /* PTHLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */; };
 		B99BDF1928DD2B4E00B54D57 /* PTHSendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */; };
@@ -36,6 +38,8 @@
 		B96B3E1F28E1FBBE007EEDFB /* DateFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatHelper.swift; sourceTree = "<group>"; };
 		B96B3E2228E1FF0A007EEDFB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		B96B3E2428E2018D007EEDFB /* PTHError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHError.swift; sourceTree = "<group>"; };
+		B96B3E2728E4DDC8007EEDFB /* PTHScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHScrollView.swift; sourceTree = "<group>"; };
+		B96B3E2B28E4F2CE007EEDFB /* PTHScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHScrollViewModel.swift; sourceTree = "<group>"; };
 		B99BDF1128DD1ABD00B54D57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHLoadingView.swift; sourceTree = "<group>"; };
 		B99BDF1828DD2B4E00B54D57 /* PTHSendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTHSendButton.swift; sourceTree = "<group>"; };
@@ -72,12 +76,30 @@
 			path = MessageContainerViews;
 			sourceTree = "<group>";
 		};
-		B96B3E2128E1FEB5007EEDFB /* ViewModels */ = {
+		B96B3E2628E4DDAE007EEDFB /* ScrollViews */ = {
 			isa = PBXGroup;
 			children = (
+				B96B3E2A28E4F2B1007EEDFB /* PTHScrollView */,
+			);
+			path = ScrollViews;
+			sourceTree = "<group>";
+		};
+		B96B3E2928E4F276007EEDFB /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				B99BDF1128DD1ABD00B54D57 /* ChatView.swift */,
 				B96B3E2228E1FF0A007EEDFB /* ChatViewModel.swift */,
 			);
-			path = ViewModels;
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		B96B3E2A28E4F2B1007EEDFB /* PTHScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				B96B3E2728E4DDC8007EEDFB /* PTHScrollView.swift */,
+				B96B3E2B28E4F2CE007EEDFB /* PTHScrollViewModel.swift */,
+			);
+			path = PTHScrollView;
 			sourceTree = "<group>";
 		};
 		B99BDF0E28DD18E100B54D57 /* Support */ = {
@@ -92,7 +114,7 @@
 		B99BDF0F28DD190900B54D57 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B99BDF1128DD1ABD00B54D57 /* ChatView.swift */,
+				B96B3E2928E4F276007EEDFB /* ChatView */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -122,6 +144,7 @@
 				B96B3E1D28DE61A9007EEDFB /* PTHDateLabelView.swift */,
 				B99BDF1428DD230400B54D57 /* PTHLoadingView.swift */,
 				B96B3E1C28DE5F90007EEDFB /* MessageContainerViews */,
+				B96B3E2628E4DDAE007EEDFB /* ScrollViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,7 +210,6 @@
 				B99BDF0F28DD190900B54D57 /* Screens */,
 				B99BDF0E28DD18E100B54D57 /* Support */,
 				B99BDF1A28DD2BB600B54D57 /* Utilities */,
-				B96B3E2128E1FEB5007EEDFB /* ViewModels */,
 			);
 			path = ProtegeTakeHome;
 			sourceTree = "<group>";
@@ -286,9 +308,11 @@
 				B99BDF1228DD1ABD00B54D57 /* ChatView.swift in Sources */,
 				B99BDF1928DD2B4E00B54D57 /* PTHSendButton.swift in Sources */,
 				B99BDF1C28DD2BC700B54D57 /* Constants.swift in Sources */,
+				B96B3E2828E4DDC8007EEDFB /* PTHScrollView.swift in Sources */,
 				B99BDF1528DD230400B54D57 /* PTHLoadingView.swift in Sources */,
 				B96B3E1928DE5E4E007EEDFB /* PTHPrimaryMessageContainerView.swift in Sources */,
 				BC1885732864DF39004CF02F /* ProtegeTakeHomeApp.swift in Sources */,
+				B96B3E2C28E4F2CE007EEDFB /* PTHScrollViewModel.swift in Sources */,
 				B96B3E2328E1FF0A007EEDFB /* ChatViewModel.swift in Sources */,
 				B96B3E1728DE58DE007EEDFB /* PTHMessageContainerView.swift in Sources */,
 				B96B3E2528E2018D007EEDFB /* PTHError.swift in Sources */,
