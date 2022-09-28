@@ -22,8 +22,8 @@ struct ChatView: View {
                 }
         } else {
             VStack {
-                ScrollView {
-                    ScrollViewReader { scrollView in
+                ScrollViewReader { scrollView in
+                    ScrollView {
                         LazyVStack(spacing: 16) {
                             ForEach(Array(viewModel.chatMessages.enumerated()), id: \.1) { (i, message) in
                                 if i > 0 {
@@ -42,10 +42,15 @@ struct ChatView: View {
                                 }
                             }
                         }
-                        .onAppear {
+                        .padding()
+                    }
+                    .onAppear {
+                        scrollView.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
+                    }
+                    .onChange(of: viewModel.lastMessageId) { _ in
+                        withAnimation {
                             scrollView.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
                         }
-                        .padding()
                     }
                 }
                 
