@@ -18,5 +18,5 @@
 
 ## How to run the app
 1. Clone this repo
-2. Open `ProtogeTakeHome.xcodeproj`
+2. Open `ProtegeTakeHome.xcodeproj`
 3. Select your device and run the the project
