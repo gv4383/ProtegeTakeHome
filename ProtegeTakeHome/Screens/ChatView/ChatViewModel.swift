@@ -65,7 +65,7 @@ extension ChatView {
             
             DispatchQueue.main.async {
                 self.chatMessages.insert(contentsOf: chatMessages, at: 0)
-                self.previousFirstMessageIndex = chatMessages.count
+                self.previousFirstMessageIndex = chatMessages.count + 2
                 
                 if let lastMessageId = chatMessages.last?.id {
                     self.lastMessageId = lastMessageId

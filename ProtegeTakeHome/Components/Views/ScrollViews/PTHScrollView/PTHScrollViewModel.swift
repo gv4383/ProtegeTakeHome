@@ -13,7 +13,7 @@ extension PTHScrollView {
         
         private var offset: CGFloat?
         private var initialOffset: CGFloat = 0.0
-        private let distanceToTriggerRefresh: CGFloat = 100
+        private let distanceToTriggerRefresh: CGFloat = 20
         
         func didUpdateOffset(_ value: CGFloat) {
             if let _ = offset {
