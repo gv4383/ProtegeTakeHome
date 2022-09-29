@@ -62,12 +62,13 @@ extension ChatView {
             let start = Calendar.current.date(byAdding: .hour, value: -12, to: date)!
             let end = date
             let chatMessages = try await mockChatAPI.fetchMessages(for: chat, interval: DateInterval(start: start, end: end))
+            let sortedChatMessages = chatMessages.sorted(by: { $0.date.compare($1.date) == .orderedAscending })
             
             DispatchQueue.main.async {
-                self.chatMessages.insert(contentsOf: chatMessages, at: 0)
-                self.previousFirstMessageIndex = chatMessages.count + 2
+                self.chatMessages.insert(contentsOf: sortedChatMessages, at: 0)
+                self.previousFirstMessageIndex = sortedChatMessages.count + 2
                 
-                if let lastMessageId = chatMessages.last?.id {
+                if let lastMessageId = sortedChatMessages.last?.id {
                     self.lastMessageId = lastMessageId
                 }
             }
