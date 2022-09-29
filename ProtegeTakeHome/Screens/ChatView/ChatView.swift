@@ -56,9 +56,13 @@ struct ChatView: View {
                     }
                     .onChange(of: viewModel.lastMessageId) { _ in
                         if viewModel.isFetchingPreviousMessages {
+                            // Keeps scroll view position when fetching older messages
+                            
                             proxy.scrollTo(viewModel.chatMessages[viewModel.previousFirstMessageIndex], anchor: .center)
                             viewModel.isFetchingPreviousMessages = false
                         } else {
+                            // Scroll to latest message when new message is sent/received
+                            
                             withAnimation {
                                 proxy.scrollTo(viewModel.chatMessages[viewModel.chatMessages.endIndex - 1])
                             }

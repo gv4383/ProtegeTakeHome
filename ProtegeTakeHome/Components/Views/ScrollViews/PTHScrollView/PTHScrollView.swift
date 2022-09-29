@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Custom scroll view that supports dragging down to refresh functionality
 struct PTHScrollView<Content: View>: View {
     let content: () -> Content
     
